@@ -7,19 +7,28 @@
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <h1>Millina's Bookshelf</h1>
+    <h1 id="page-title">Millina's Bookshelf</h1>
     <div id="bookshelf">
+        <div class="book">
+            <h1 class="book-title">
+                Example book title
+            </h1>
+            <p class="book-author">
+                Example book author
+            </p>
+        </div>
     </div>
-    <!-- <div id="adding">
-        <input type="text" id="book-name">
-        <input type="button" id="add-book" value="＋">
-    </div> -->
 
     <button id="modalbutton">+</button>
     <div id="modalwndw" class="modal">
         <div id="modal1" class="modal-content">
             <span class="close">&times;</span>
-            <p>Add a book</p>
+            <h2 id="modalh2">Add a book</h2>
+            <p>Book name</p>
+            <input type="text" id="book-name">
+            <p>Author's name</p>
+            <input type="text" id="author-name">
+            <input type="button" id="add-book" value="＋">
         </div>
     </div>
 

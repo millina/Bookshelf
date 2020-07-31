@@ -1,4 +1,5 @@
 let bookNameInput = document.querySelector("#book-name");
+let authorNameInput = document.querySelector("#author-name");
 let addButton = document.querySelector("#add-book");
 let bookshelf = document.querySelector("#bookshelf");
 let books = [];
@@ -11,23 +12,11 @@ let savedBooks = localStorage.getItem("books");
 
 if(savedBooks) {
     books = JSON.parse(savedBooks);
-    bookshelf.innerHTML = books.join("<br></br>");
-}
-
-function addBook() {
-    let name = bookNameInput.value;
-    books.push(name);
-    localStorage.setItem("books", JSON.stringify(books));
-    bookshelf.innerHTML = books.join("<br></br>");
-}
-
-/* addButton.onclick = addBook;
-bookNameInput.addEventListener("keyup", function(enter) {
-    if(enter.keyCode === 13) {
-        addBook();
-        enter.preventDefault();
+    for(let b of books) {
+        let bookHTML = createBook(b);
+        bookshelf.appendChild(bookHTML);
     }
-}); */
+}
 
 modalbutton.onclick = function() {
     modal.style.display = "block";
@@ -43,9 +32,42 @@ window.onclick = function(event) {
     }
 }
 
+function addBook() {
+    let newBook = {
+        title: bookNameInput.value,
+        author: authorNameInput.value,
+    };
+    books.push(newBook);
+    localStorage.setItem("books", JSON.stringify(books));
 
-
-function createBook(book) {
-    let newBook = document.createElement("div")
+    for(let b of books) {
+        let bookHTML = createBook(b);
+        bookshelf.appendChild(bookHTML);
+    }
 }
 
+function createBook(book) {
+    let bookDiv = document.createElement("div");
+    bookDiv.className = "book";
+
+    let bookTitle = document.createElement("h1");
+    bookTitle.className = "book-title";
+    bookTitle.innerHTML = book.title;
+
+    let bookAuthor = document.createElement("p");
+    bookAuthor.className = "book-author";
+    bookAuthor.innerHTML = book.author;
+
+    bookDiv.appendChild(bookTitle);
+    bookDiv.appendChild(bookAuthor);
+
+    return bookDiv;
+}
+
+addButton.onclick = addBook;
+/*bookNameInput.addEventListener("keyup", function(enter) {
+    if(enter.keyCode === 13) {
+        addBook();
+        enter.preventDefault();
+    }
+}); */
