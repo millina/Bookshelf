@@ -39,11 +39,15 @@ function addBook() {
     };
     books.push(newBook);
     localStorage.setItem("books", JSON.stringify(books));
-
+    bookshelf.innerHTML = "";
     for(let b of books) {
         let bookHTML = createBook(b);
         bookshelf.appendChild(bookHTML);
     }
+
+    document.getElementById("book-name").value = "";
+    document.getElementById("author-name").value = "";
+    modal.style.display = "none";
 }
 
 function createBook(book) {

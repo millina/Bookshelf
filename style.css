@@ -20,10 +20,8 @@ body {
     margin: auto;
     margin-top: 3em;
     padding: 2em;
-    box-shadow: 0.125em 0.125em #435f593a;
-    border: .05em solid #435f593a;
     border-radius: 2em;
-    background-color: #ffffff;
+    background-color: #fafffd;
 
 }
 
@@ -49,6 +47,7 @@ body {
     border-radius: 2em;
     box-shadow: 0.125em 0.125em #435f593a;
     cursor: pointer;
+    outline: none;
 }
 
 #add-book:hover {
@@ -58,6 +57,7 @@ body {
 #book-name,
 #author-name {
     padding: .25em;
+    padding-left: 1em;
     width: 11em;
     height: 2em;
     font-family: 'Raleway';
@@ -68,7 +68,15 @@ body {
     border-radius: 2em;
     box-shadow: 0.125em 0.125em #6a948b67;
     background-color: #ffffff;
+    outline: none;
 }
+
+#book-name:focus,
+#author-name:focus {
+    border: .05em solid #8d9b96;
+    box-shadow: 0.2em 0.2em #18201e67;
+}
+
 #modalbutton {
     position: fixed;
     bottom: 3em;
@@ -88,8 +96,12 @@ body {
     border-radius: 2em;
     box-shadow: 0.125em 0.125em #435f593a;
     cursor: pointer;
-
+    outline: none;
 }
+#modalbutton:hover {
+    background-color: #41eba4;
+}
+
 #modalwndw {
     display: initial;
     position: fixed;
@@ -98,11 +110,18 @@ body {
     top: 0;
     left: 0;
     overflow: auto;
+    backdrop-filter: blur(.2em);
 }
 
 .modal-content {
+    position: fixed;
     background-color: #ffffff;
-    margin:15%;
+    width: 50%;
+    min-width: 260px;
+    max-width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
     padding: 3em;
     border: .05em solid #c5dad3;
     border-radius: 2em;
@@ -114,6 +133,7 @@ body {
     float: right;
     font-size: 1em;
     font-weight: bold;
+    padding: .5em;
 }
 
 .close:hover,
