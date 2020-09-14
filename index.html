@@ -22,12 +22,53 @@
     <button id="modalbutton">+</button>
     <div id="modalwndw" class="modal">
         <div id="modal1" class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="modalh2">Add a book</h2>
-            <p>Book name</p>
-            <input type="text" id="book-name">
-            <p>Author's name</p>
-            <input type="text" id="author-name">
+            <div>
+                <span class="close">&times;</span>
+                <h2 id="modalh2">Add a book</h2>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <p>Book title</p>
+                    <input type="text" id="book-name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <p>Author's name</p>
+                    <input type="text" id="author-name">
+                </div>
+                <div class="column">
+                    <p>Female</p>
+                    <input type="checkbox" id="is-female">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <p>Genre</p>
+                    <input type="text" id="genre">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <p>Publishing year</p>
+                    <input type="number" id="pub-year" max="2021">
+                </div>
+                <div class="column">
+                    <p>Page count</p>
+                    <input type="number" id="page-num" min="1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <p>Cover image link</p>
+                    <input type="url" id="cover-link">
+                </div>
+                <div class="column">
+                    <p>Read</p>
+                    <input type="checkbox" id="is-read">
+                </div>
+            </div>
+
             <input type="button" id="add-book" value="＋">
         </div>
     </div>

@@ -54,12 +54,15 @@ body {
     background-color: #41eba4;
 }
 
+
 #book-name,
-#author-name {
+#author-name,
+#genre,
+#cover-link {
     padding: .25em;
     padding-left: 1em;
     width: 11em;
-    height: 2em;
+    height: 1.5em;
     font-family: 'Raleway';
     font-weight: 400;
     font-size: 1em;
@@ -72,10 +75,31 @@ body {
 }
 
 #book-name:focus,
-#author-name:focus {
+#author-name:focus,
+#genre:focus,
+#cover-link:focus {
     border: .05em solid #8d9b96;
     box-shadow: 0.2em 0.2em #18201e67;
 }
+
+
+#pub-year,
+#page-num {
+    padding: .25em;
+    padding-left: 1em;
+    width: 5em;
+    height: 1.5em;
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 1em;
+    color: #292828;
+    border: .05em solid #c5dad3;
+    border-radius: 2em;
+    box-shadow: 0.125em 0.125em #6a948b67;
+    background-color: #ffffff;
+    outline: none;
+}
+
 
 #modalbutton {
     position: fixed;
@@ -114,11 +138,15 @@ body {
 }
 
 .modal-content {
+    display: grid;
+    grid-gap: 1em;
+    grid-auto-rows: min-content;
+    grid-auto-flow: row;
     position: fixed;
     background-color: #ffffff;
     width: 50%;
     min-width: 260px;
-    max-width: 400px;
+    max-width: 500px;
     top: 50%;
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
@@ -126,6 +154,19 @@ body {
     border: .05em solid #c5dad3;
     border-radius: 2em;
     box-shadow: 0.125em 0.125em #6a948b67;
+}
+
+.row {
+    min-width: 260px;
+    max-width: 500px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: .5em;
+}
+
+.column p {
+    margin-bottom: .25em
 }
 
 .close {
