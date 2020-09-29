@@ -5,7 +5,9 @@ body {
     font-family: 'Raleway';
     font-weight: 600;
     background-color: #fafffd;
-
+    height: 100vh;
+    overflow-y: hidden;
+    padding-right: 15px; /* Avoid width reflow */
 }
 
 #page-title {
@@ -36,6 +38,7 @@ body {
     box-sizing: content-box;
     font-size: 1em;
     margin-left: .5em;
+    margin-bottom: 1em;
     padding: .25em;
     width: 2em;
     height: 2em;
@@ -135,25 +138,73 @@ body {
     left: 0;
     overflow: auto;
     backdrop-filter: blur(.2em);
+    z-index: 1000;
+    overflow: hidden;
+}
+.close {
+    position: relative;
+    color: #aaaaaa;
+    float: right;
+    font-size: 1.25em;
+    font-weight: bold;
+    padding: .5em;
+    margin: .25em;
+    z-index: 1020;
 }
 
-.modal-content {
+.close:hover,
+.close:focus {
+    color: #000000;
+    /*text-decoration: none; */
+    cursor: pointer;
+}
+
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    min-width: 260px;
+    width: 600px;
+    max-width: 100%;
+    height: 540px;
+    max-height: 100%;
+    z-index: 1010;
+    overflow: visible;
+}
+
+#modalcontent {
     display: grid;
     grid-gap: 1em;
     grid-auto-rows: min-content;
     grid-auto-flow: row;
-    position: fixed;
+    position: absolute;
     background-color: #ffffff;
-    width: 50%;
-    min-width: 260px;
-    max-width: 500px;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     padding: 3em;
+    overflow: auto;
     border: .05em solid #c5dad3;
     border-radius: 2em;
     box-shadow: 0.125em 0.125em #6a948b67;
+}
+
+::-webkit-scrollbar {
+    width: 50px;
+}
+::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 20px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    -webkit-border-radius: 30px;
+    background-color: #6a948b67;
+    -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
 }
 
 .row {
@@ -169,21 +220,6 @@ body {
     margin-bottom: .25em
 }
 
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 1em;
-    font-weight: bold;
-    padding: .5em;
-}
-
-.close:hover,
-.close:focus {
-    color: #000000;
-    /*text-decoration: none; */
-    cursor: pointer;
-}
-
 #modalh2 {
-    margin-bottom: 2em;
+    margin-bottom: 0.75em;
 }
