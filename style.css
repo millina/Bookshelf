@@ -6,7 +6,7 @@ body {
     font-weight: 600;
     background-color: #fafffd;
     height: 100vh;
-    overflow-y: hidden;
+    overflow-y: auto;
     padding-right: 15px; /* Avoid width reflow */
 }
 
@@ -17,6 +17,12 @@ body {
 }
 
 #bookshelf {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 10em));
+    gap: 2em;
+    grid-auto-rows: auto;
+    grid-auto-flow: row;
+    place-content: center;
     width: 60%;
     min-height: 6em;
     margin: auto;
@@ -24,6 +30,7 @@ body {
     padding: 2em;
     border-radius: 2em;
     background-color: #fafffd;
+    overflow: auto;
 
 }
 
